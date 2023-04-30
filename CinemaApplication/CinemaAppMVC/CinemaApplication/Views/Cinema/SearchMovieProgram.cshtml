@@ -1,0 +1,91 @@
+﻿@using ViewModels;
+@model List<MovieProgramViewModel>
+
+<div class="form-search">
+    <form asp-action="SearchMovieProgram" asp-controller="Cinema">
+        <div class="form-group search-option">
+            <input type="text" name="id" class="form-control w-100" placeholder="Search" />
+            <button type="submit" value="Search" class="btn btn-dark btn-search">Search</button>
+        </div>
+    </form>
+</div>
+
+@*add new program*@
+<div style="float:left">
+    @if (User.Identity.IsAuthenticated)
+    {
+        if (User.IsInRole("Admin"))
+        {
+            <a asp-action="AddCinemaHallModel" asp-controller="Cinema" class="btn btn-outline-danger float-end mb-3 mt-3">Add Movie Program</a>
+        }
+    }
+</div>
+<br />
+
+<div class="index-page">
+    <div class="cards flex-column">
+
+        @{
+            List<ReservationViewModel> reservationViewModels = ViewBag.Reservations;
+        }
+        @foreach (var items in ViewBag.DateTimes)
+        {
+            <h1>@items</h1>
+            <div class="movie-cards gap-1">
+
+                @foreach (var item in Model)
+                {
+                    if (item.Date.ToShortDateString() == items)
+                    {
+                        <div class="card" style="width: 20rem;">
+                            <div class="card-body shadow-lg bg-white rounded">
+
+                                <img class="card-img-top" src="@item.CinemaHall.Movie.Image">
+                                <h1 class="card-title">@item.CinemaHall.Movie.Title</h1>
+                                <h4 class="card-title">Showing on: @item.Date.ToString("dddd, dd MMMM yyyy")</h4>
+                                <h5 class="card-title">Start Time: @item.StartTime</h5>
+                                <h5 class="card-title">End Time: @item.EndTime</h5>
+                                <p class="card-text">Price: @item.Price $</p>
+
+                                @{
+                                    if (reservationViewModels.Where(x => x.MovieProgramId == item.Id).Count() == @item.CinemaHall.Size.Seats)
+                                    {
+                                        <p>Cinema Hall is full</p>
+
+                                    }
+                                    else
+                                    {
+                                        <p>There are available seats</p>
+                                    }
+
+                                }
+
+
+
+                                <p class="card-text">@item.CinemaHall.Size.Description</p>
+                                <div class="buttons-cinema">
+                                    @if (User.Identity.IsAuthenticated)
+                                    {
+                                        if (User.IsInRole("Admin"))
+                                        {
+                                            <a asp-action="EditProgram" asp-controller="Cinema" asp-route-id="@item.Id" class="btn btn-primary">Edit</a>
+                                            <a asp-action="DeleteProgram" asp-controller="Cinema" asp-route-id="@item.Id" class="btn btn-primary">Delete</a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-action="Details" asp-controller="Cinema" asp-route-id="@item.Id" class="btn btn-outline-danger float-end mb-3 mt-3">Details</a>
+
+                                        }
+
+
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+            </div>
+        }
+    </div>
+</div>

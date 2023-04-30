@@ -1,0 +1,37 @@
+﻿@using ViewModels;
+@model MovieProgramViewModel
+
+
+
+
+<div class="cards-style">
+    <div class="image">
+        <img class="card-img-top" src="@Model.CinemaHall.Movie.Image">
+    </div>
+    <div class="text">
+        <h1 class="card-title">@Model.CinemaHall.Movie.Title</h1>
+        <h4 class="card-title">Showing on: <br /> @Model.Date.ToString("dddd, dd MMMM yyyy")</h4>
+        <h5 class="card-title">Start Time: @Model.StartTime</h5>
+        <h5 class="card-title">End Time: @Model.EndTime</h5>
+        <p class="card-text">@Model.CinemaHall.Movie.Description</p>
+        <h4>Premiers on:</h4>
+        @{
+            <p>
+                @foreach (var item in ViewBag.MoviePrograms)
+                {
+                    if (Model.CinemaHall.Movie.Title == item.CinemaHall.Movie.Title)
+                    {
+                        @item.Date.ToString("dddd, dd MMMM yyyy") <br />
+                    }
+
+                }
+            </p>
+        }
+
+        <div class="buttons-cinema">
+            <a asp-action="Index" asp-controller="Cinema" class="btn btn-primary">Go Back</a>
+            <a asp-action="GetMovieProgram" asp-controller="Reservation" class="btn btn-primary" asp-route-id="@Model.Id">Reserve Online</a>
+        </div>
+    </div>
+</div>
+

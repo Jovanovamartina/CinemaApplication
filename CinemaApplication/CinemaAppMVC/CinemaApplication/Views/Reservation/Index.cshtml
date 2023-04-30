@@ -1,0 +1,38 @@
+﻿@using ViewModels;
+@model List<ReservationViewModel>
+
+   <div class="form-search">
+       <form asp-action="SearchReservation" asp-controller="Reservation">
+            <div class="form-group search-option">
+                <input type="text" name="id" class="form-control w-100" placeholder="Search"/>
+                <button type="submit" value="Search" class="btn btn-dark btn-search" >Search</button>
+            </div>
+       </form>
+   </div>
+  <br/>
+  <be/>
+    <table class="table table-striped">
+         <thead>
+    <tr>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Order Details</th>
+    </tr>
+  </thead>
+  <tbody>
+
+        @foreach (var item in Model)
+        {
+               <tr>
+            <td>@item.Name</td>
+            <td>@item.LastName</td>
+            <td><a asp-action="Details" asp-controller="Reservation" asp-route-id="@item.Id" class="btn btn-success">Order #@item.Id</a></td>
+            <td><a asp-action="DeleteReservation" asp-controller="Reservation" asp-route-id="@item.Id" class="btn btn-danger">Delete</a></td>
+         </tr>
+        }
+  </tbody>
+
+
+
+</table>
+

@@ -1,0 +1,63 @@
+﻿@using ViewModels;
+@model ReservationViewModel
+
+<form asp-action="SaveReservation" asp-controller="Reservation" method="post">
+    <input type="hidden" asp-for="MovieProgramId" value="@Model.MovieProgramId" />
+    <div class="inputs-reservation">
+        <div class="forms-reservation shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="form-control-lg ">
+                <div class="form-group">
+                    <label asp-for="Name" class="text-dark form-label">Name</label>
+                    <input class="form-control w-100" asp-for="Name" placeholder="Enter Name">
+                    <span asp-validation-for="Name" class="text-danger h6"></span>
+                </div>
+                <div class="form-group mt-3">
+                    <label asp-for="LastName" class="text-dark form-label">Last Name</label>
+                    <input class="form-control w-100" asp-for="LastName" placeholder="Enter Last Name">
+                    <span asp-validation-for="LastName" class="text-danger h6"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="TicketQuantity" class="text-dark">Choose Ticket Quantity</label>
+                    <br />
+                    <h6 class="text-dark-50"> <span id="value" class="text-dark-50 float-end"></span></h6>
+                    <input type="range" asp-for="TicketQuantity" min="1" max="50" value="1" class="myslider w-100" id="sliderRange">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    @{
+
+        <div class="snacks">
+            @for (int i = 0; i < ViewBag.Snacks.Count; i++)
+            {
+                         <div class="card shadow-lg p-3 mb-5 bg-white rounded" style="width: 15rem;">
+                    <div class="card-body">
+                        <div class="snack">
+                            <input type="hidden" asp-for="@Model.SnackOrders[i].Snack.Id" value="@ViewBag.Snacks[i].Id" />
+                            <div class="snacks-title">
+                                <h6 class="text-danger">@ViewBag.Snacks[i].Name <br /> @ViewBag.Snacks[i].Price $</h6>
+                                <input type="checkbox" asp-for="@Model.SnackOrders[i].Select" class="mb-3" value="true" />
+                            </div>
+                            <div class="form-group">
+                                <br />
+                                <h6 class="text-danger">Quantity: <span class="snack-value text-danger float-end"></span></h6>
+                                <input type="range" asp-for="@Model.SnackOrders[i].SnackQuantity" min="1" max="5" value="1" class="myslider w-100 snack-sliderRange">
+                            </div>
+
+                            <div class="image-checkbox">
+                                <img class="card-img-top" src="@ViewBag.Snacks[i].Image" alt="Card image cap">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+
+    <button type="submit" class="btn btn-danger">Submit</button>
+</form>

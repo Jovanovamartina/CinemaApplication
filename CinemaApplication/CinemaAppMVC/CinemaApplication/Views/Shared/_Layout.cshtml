@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - CinemaApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/CinemaApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-danger border-bottom box-shadow mb-3">
+            <div class="container-fluid" style="font-size:large;font-weight:500">
+                <img src="https://th.bing.com/th/id/R.defb21bb4fb1ebfce94b555d4f00d788?rik=Zx4dB0oitLUrxA&riu=http%3a%2f%2fcdn.onlinewebfonts.com%2fsvg%2fimg_490833.png&ehk=x%2f78fv6S4aX6MZi1LBwEM3aptPBkIYAK9mkY0SeDB%2fc%3d&risl=&pid=ImgRaw&r=0" style="height:40px;width:40px" />
+                <a style="color:black" class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+          
+                    <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" style="font-size:large;font-weight:500">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Cinema" asp-action="Index">Movie Program</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="Movie" asp-action="Index">Movies</a>
+                            </li>
+                            <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Snack" asp-action="Index">Snacks</a>
+                            </li>
+                       
+            
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Reservation" asp-action="Index">Reservations</a>
+                                </li>
+                            }
+                         
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="text-center text-lg-start bg-dark text-muted mt-auto">
+        <!-- Section: Social media -->
+        <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+            <!-- Left -->
+            <!-- Left -->
+            <!-- Right -->
+            <!-- Right -->
+        </section>
+        <!-- Section: Social media -->
+        <!-- Section: Links  -->
+        <section class="">
+            <div class="container text-center text-md-start mt-5">
+                <!-- Grid row -->
+                <div class="row mt-3">
+                    <!-- Grid column -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <!-- Content -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            <i class="fas fa-gem me-3"></i>CinemaTime
+                        </h6>
+                        <p>
+                            In this website you will find all the latest happenings of movies, be they local or international.Come and visit the
+                            best Cinema in the city
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">
+                            Products
+                        </h6>
+                        <p>
+                          <a href="#!" class="text-reset text-decoration-none">Movies</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset text-decoration-none">Snacks</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset text-decoration-none">Reservation</a>
+                        </p>
+                        <p>
+                            <a href="#!" class="text-reset text-decoration-none">Movie Programs</a>
+                        </p>
+                    </div>
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <!-- Grid column -->
+                    <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <!-- Links -->
+                        <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+                        <p><i class="fas fa-home me-3"></i> Veles, 1400, Macedonia</p>
+                        <p>
+                            <i class="fas fa-envelope me-3"></i>
+                            CinemaTime@info.com
+                        </p>
+                        <p><i class="fas fa-phone me-3"></i> + 389 43 565 121 </p>
+                    </div>
+                    <!-- Grid column -->
+                </div>
+                <!-- Grid row -->
+            </div>
+        </section>
+        <!-- Section: Links  -->
+        <!-- Copyright -->
+        <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2022 Copyright: <strong>CinemaTime</strong>
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

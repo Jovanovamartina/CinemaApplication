@@ -1,0 +1,45 @@
+﻿@using ViewModels;
+@model SnackViewModel
+
+
+
+    <div class="form-snacks shadow-lg p-3 mb-5 bg-white rounded">
+        <h1 style="align-items:center" class="display-6 text-light">Add Snacks</h1>
+        <form asp-controller="Snack" asp-action="AddNewSnack" method="post">
+
+
+            <div class="form-group add-snacks-input mt-5 w-50">
+                <label asp-for="Image" class="h5 text-dark">Image:</label>
+                <input asp-for="Image" class="form-control" placeholder="Image is required" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+            <div class="form-group w-50 add-snacks-input">
+                <label asp-for="Name" class="h5 text-dark">Name:</label>
+                <input asp-for="Name" class="form-control" placeholder="Name is required" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+
+            <div class="form-group w-50 add-snacks-input">
+                <label asp-for="Price" class="h5 text-dark">Price:</label>
+                @{
+
+                    if (Model.Price != 0)
+                    {
+                        <input asp-for="Price" type="number" class="form-control" min="1" value="@Model.Price" />
+                    }
+                    else
+                    {
+                        <input asp-for="Price" type="number" class="form-control" min="1" value="100" />
+                    }
+
+                }
+                <span asp-validation-for="Price"></span>
+            </div>
+            <div style="float:left">
+            <button type="submit" class="btn btn-danger float-md-end mt-3">Add</button>
+            </div>
+        </form>
+    </div>
+
+
+

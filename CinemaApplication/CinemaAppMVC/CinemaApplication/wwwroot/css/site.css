@@ -1,0 +1,512 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    background-color: black;
+}
+
+@media (max-width : 760px) {
+
+    .form-drop-down {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .form-new-cinema-hall button {
+        margin-right: 1em;
+    }
+
+    .form-new-program button {
+        margin-top: -1em;
+    }
+
+    .image-name-movie {
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 2em;
+    }
+
+    .desc-movie textarea {
+        width: 20em;
+    }
+
+    .edit-cinema-hall {
+        float: right;
+        margin-top: -1em;
+    }
+
+    .add-snacks-input {
+        width: auto !important;
+    }
+
+    .container-carousel {
+        display: none !important;
+    }
+}
+
+
+.cards {
+    display: flex;
+    align-content: stretch;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 2em;
+    margin-top: 1em;
+    justify-content: flex-start;
+}
+
+.card-body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-direction: column;
+    align-content: center;
+}
+
+
+img {
+    height: 20em;
+}
+
+.movie-cards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.form-new-program {
+    display: flex;
+    width: auto;
+    padding: 2em;
+    justify-content: start;
+    background-image: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-position: center;
+    height: 25em;
+}
+
+.form-drop-down {
+    display: flex;
+    gap: 2em;
+}
+
+.form-new-cinema-hall {
+    display: flex;
+    width: auto;
+    padding: 5em;
+    justify-content: center;
+    background-image: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80");
+    background-position: center;
+    height: 25em;
+}
+
+.form-control-lg {
+    width: 20em;
+}
+
+.forms-price-time {
+    display: flex;
+    gap: 2em;
+    margin-top: 2em;
+    flex-wrap: wrap;
+}
+
+.forms-input {
+    display: flex;
+    padding: 2em;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.form-inputs-movie {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.date-add-new-movie {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.image-name-movie {
+    display: flex;
+    gap: 7em;
+}
+
+.desc-movie {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+.add-new-movie-form {
+    background-image: url("https://thumbs.dreamstime.com/z/abstract-background-white-film-strip-frame-clapper-board-isolated-design-template-cinema-space-your-text-movie-139766769.jpg");
+    background-position: right;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 2em;
+}
+
+.buttons-cinema {
+    display: flex;
+    justify-content: start;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.5em;
+}
+
+.snack img {
+    width: 10em;
+    height: 10em;
+}
+
+.snack {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: flex-start;
+}
+
+.snacks-title {
+    float: none;
+    display: flex;
+    gap: 1em;
+}
+
+.snacks {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+}
+
+.image-checkbox {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+}
+
+.cards-style {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2em;
+    flex-wrap: wrap;
+}
+
+.image img {
+    width: 20em;
+    height: auto;
+}
+
+/*.carousel-inner {
+    margin-top: 5em;
+    width: auto;
+    height: 30em;
+    max-height: 26em !important;
+    background-color: white;
+}
+
+    .carousel-inner img {
+        width: 18em;
+        margin-bottom: 2em;
+    }
+
+.carousel-content {
+    color: black;
+    display: flex;
+    text-align: center;
+}*/
+
+.text-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/*.container-carousel {
+    margin-top: 2em;
+    width: auto;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.carousel-details {
+    margin-top: 5em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: stretch;
+    justify-content: space-around;
+}
+
+.title-carousel {
+    margin-left: 3em;
+}
+*/
+.forms-reservation {
+    background-image: url("https://thumbs.dreamstime.com/z/abstract-background-white-film-strip-frame-clapper-board-isolated-design-template-cinema-space-your-text-movie-139766769.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    width: 15em;
+    text-align: justify;
+}
+
+.main-info {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.products {
+    width: 45em;
+}
+
+.book-movie {
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    text-decoration: none;
+    width: 11em;
+    cursor: pointer;
+    font-weight: 700;
+    background-image: linear-gradient(to right, #000000 0%, #e74c3c 51%, #000000 100%);
+    margin: 10px;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    border: 0px;
+    box-shadow: 0px 0px 14px -7px #f09819;
+    border-radius: 10px;
+    display: block;
+}
+
+.btn-grad:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+}
+
+.book-movie:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.book-movie:active {
+    transform: scale(0.95);
+}
+
+.movies {
+    margin-top: 5em;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+    .movies img {
+        width: 15em;
+        height: 20em;
+    }
+
+.snacks-index {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.form-snacks {
+    background-image: url("https://thumbs.dreamstime.com/b/cinema-snacks-popcorn-paper-bag-soft-drink-near-glasses-yellow-background-top-view-cinema-snacks-popcorn-paper-bag-109440207.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    height: 30em;
+    
+}
+
+.search-option {
+    display: flex;
+    gap: 1em;
+    float: right;
+}
+
+.index-movies {
+    display: flex;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+filter-movies, filter-movies:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-movies li {
+    display: inline-block;
+    position: relative;
+    padding-bottom: 3px;
+    margin-right: 10px;
+}
+
+    .nav-movies li:last-child {
+        margin-right: 0;
+    }
+
+    .nav-movies li:after {
+        content: '';
+        display: block;
+        margin: auto;
+        height: 3px;
+        width: 0px;
+        background: transparent;
+        transition: width .5s ease, background-color .5s ease;
+    }
+
+    .nav-movies li:hover:after {
+        width: 100%;
+    }
+
+
+
+
+.gradient-custom-3
+{
+    background: #c43535;
+}
+
+.gradient-custom-4 
+{
+    background: #84fab0;
+}
+
+.card-sl {
+    border-radius: 8px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.card-image img {
+    max-height: 100%;
+    max-width: 100%;
+    border-radius: 8px 8px 0px 0;
+}
+
+.card-action {
+    position: relative;
+    float: right;
+    margin-top: -25px;
+    margin-right: 20px;
+    z-index: 2;
+    color: #E26D5C;
+    background: #fff;
+    border-radius: 100%;
+    padding: 15px;
+    font-size: 15px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+}
+
+    .card-action:hover {
+        color: #fff;
+        background: #E26D5C;
+        -webkit-animation: pulse 1.5s infinite;
+    }
+
+.card-heading {
+    font-size: 18px;
+    font-weight: bold;
+    background: #fff;
+    padding: 10px 15px;
+}
+
+.card-text {
+    padding: 10px 15px;
+    background: #fff;
+    font-size: 14px;
+    color: #636262;
+}
+
+.card-button {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+    width: 100%;
+    background-color: #1F487E;
+    color: #fff;
+    border-radius: 0 0 8px 8px;
+}
+
+    .card-button:hover {
+        text-decoration: none;
+        background-color: #1D3461;
+        color: #fff;
+    }
+
+
+@-webkit-keyframes pulse {
+    0% {
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+    }
+
+    70% {
+        -moz-transform: scale(1);
+        -ms-transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
+        box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+    }
+
+    100% {
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        transform: scale(0.9);
+        box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+    }
+}

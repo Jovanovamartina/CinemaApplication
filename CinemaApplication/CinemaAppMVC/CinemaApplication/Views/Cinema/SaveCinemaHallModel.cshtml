@@ -1,0 +1,63 @@
+﻿@using ViewModels;
+@model MovieProgramViewModel
+
+
+<div class="form-new-program border border-dark shadow-lg p-3 mb-5 bg-white rounded">
+    <form asp-action="AddNewProgram" asp-controller="Cinema" method="post">
+        <input type="hidden" asp-for="CinemaHallId" value="@Model.CinemaHallId" />
+        <input type="hidden" asp-for="Id" value="@Model.Id" />
+        <div class="forms-input">
+            <div class="form-group">
+                <label asp-for="Date" class="text-light">Enter Date</label>
+                @{
+                    if (Model.Date == DateTime.MinValue)
+                    {
+                        <input asp-for="Date" type="date" class="form-control form-control-lg w-auto" value="@DateTime.Today.ToString("yyyy/MM/dd")" />
+                    }
+                    else
+                    {
+                        <input asp-for="Date" type="date" class="form-control form-control-lg w-auto" value="@Model.Date.ToString("yyyy/MM/dd")" />
+                    }
+                }
+
+
+            </div>
+
+            <div class="forms-price-time">
+                <div class="form-group">
+                    <label asp-for="StartTime" class="text-light">Start Time:</label>
+                    <input asp-for="StartTime" type="time" class="form-control" />
+                    <span asp-validation-for="StartTime" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="EndTime" class="text-light">End Time:</label>
+                    <input asp-for="EndTime" type="time" class="form-control" />
+                    <span asp-validation-for="EndTime" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Price" class="text-light">Enter Price</label>
+                    @{
+                        if (Model.Price == 0)
+                        {
+                            <input asp-for="Price" type="number" class="form-control" min="5" value="100" />
+                        }
+                        else
+                        {
+                            <input asp-for="Price" type="number" class="form-control" min="5" value="@Model.Price" />
+                        }
+                    }
+
+                    <span asp-validation-for="Price" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-danger float-start mx-4">Save</button>
+        @{
+            if (@Model.ChangeCinemaHall)
+            {
+                <a asp-action="AddCinemaHallModel" asp-controller="Cinema" asp-route-id="@Model.CinemaHallId" class="btn btn-primary edit-cinema-hall">Edit Cinema Hall</a>
+            }
+        }
+    </form>
+</div>

@@ -1,0 +1,35 @@
+﻿@using ViewModels;
+@model CinemaHallViewModel
+
+
+
+
+<div class="form-new-cinema-hall border border-dark shadow-lg bg-white rounded ">
+<form asp-action="AddCinemaHallModel" asp-controller="Cinema" method="post">
+     <div class="form-drop-down flex-sm-wrap">
+    <div class="form-control-lg">
+   <label class="text-light" asp-for="MovieId">Select Movie: </label>
+
+        <select asp-for="MovieId" asp-items="@ViewBag.Movies" class="btn btn-light w-100 form-control-sm">
+            <option>--Select--</option>
+        </select>
+         <span asp-validation-for="MovieId" class="text-danger">Required</span>
+    </div>
+    <div class="form-control-lg">
+    <label class="text-light" asp-for="SizeId">Select Cinema Hall: </label>
+         <select asp-for="SizeId" asp-items="@(IEnumerable<SelectListItem>) ViewBag.SizeHalls" class="btn btn-light w-100 form-control-sm">
+              <option>--Select--</option>
+        </select>
+          <span asp-validation-for="SizeId" class="text-danger">Required</span>
+
+
+    </div>  
+
+      </div>
+      <button type="submit" class="btn btn-danger float-end">Next</button>
+</form>
+</div>
+
+
+
+

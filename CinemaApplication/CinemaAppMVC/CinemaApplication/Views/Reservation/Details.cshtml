@@ -1,0 +1,55 @@
+﻿@using ViewModels;
+@model ReservationViewModel
+
+@*Order id(number)*@
+<div class="border-bottom border-secondary">
+    <h3 style="color:darkgreen;font-family:Algerian" class="display-6"><b>Order #@Model.Id </b> </h3>
+</div>
+<br />
+<div class="main-info">
+    <div class="customer-info">
+        <h5 style="font-weight:500;color:antiquewhite">Customer Information:</h5>
+        <p style="color:antiquewhite">First Name: @Model.Name</p>
+        <p style="color:antiquewhite">Last Name: @Model.LastName</p>
+    </div>
+    <div class="products">
+        <table class="table">
+            <thead>
+                <tr style="color:antiquewhite;font-size:larger;">
+                    <th scope="col">Product</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="color:ghostwhite" scope="row">
+                        @Model.MovieProgram.CinemaHall.Movie.Title
+                        <br /> <small>
+                            @Model.MovieProgram.Date.ToString("dddd, dd MMMM yyyy")
+                            <br /> @Model.MovieProgram.StartTime - @Model.MovieProgram.EndTime
+                            <br /> @Model.MovieProgram.CinemaHall.Size.Description
+                        </small>
+                    </td>
+                    <td style="color:ghostwhite">@Model.TicketQuantity</td>
+                    <td style="color:ghostwhite">@Model.TicketPrice $</td>
+                </tr>
+                @foreach (var item in Model.SnackOrders)
+                {
+                    <tr>
+                        <td scope="row">@item.Snack.Name</td>
+                        <td>@item.SnackQuantity</td>
+                        <td>@item.Price $</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+<div class="total-price float-end mt-4">
+    <h3 class="text-muted">Total: @Model.FullPrice $</h3>
+</div>
+
+<a asp-action="Index" asp-controller="Cinema" class="btn btn-outline-danger mt-5">Make Another Reservation</a>
